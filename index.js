@@ -140,7 +140,7 @@ console.log(tripleWord("Hello", 3));
 console.log("Number 8");
 //8. Write a function that takes two parameters, firstName and lastName, and returns a full name. The full name should be the first and the last name separated by a space.
 
-//created function that takes firstName and lastName as parameters, and returns the result as a full name concatenated together separated by spaced, did first with a regular function (currently commented out), simplified to an arrow function
+//created function that takes firstName and lastName as parameters, and returns the result as a full name concatenated together separated by spaces, did first with a regular function (currently commented out), simplified to an arrow function
 
 /*function combinedName(firstName, lastName){
     return firstName + " " + lastName;
