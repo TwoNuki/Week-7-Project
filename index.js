@@ -34,13 +34,13 @@ function averageAge(array){
 let average = averageAge(ages);
 console.log(average);
 
-//tried it with just a for of loop to see if it would work that way
-let sum3 = 0;
+//tried it with just a for of loop to see if it would work that way (commented out so not to clutter the console)
+/*let sum3 = 0;
  for(let  number of ages){
      sum3 += number;
  }
  let avg = sum3 / ages.length;
- console.log(avg);
+ console.log(avg);*/
 
  console.log('Number 2');
 
@@ -61,9 +61,9 @@ for (let i=0; i < names.length; i++){
 }
 console.log(sumOfNames/names.length);
 
-//wasn't working with a for of loop for some reason
+//wasn't working with a for of loop for some reason (nevermind, it does, accidentally wrote =+ instead of +=, fixed that)
  /*for(let name of names){
-     sumOfNames =+ name.length;
+     sumOfNames += name.length;
  }
  let nameAverage = sumOfNames / names.length;
 
@@ -103,19 +103,25 @@ console.log('example' + ' '+ names[0]);
 
 console.log("Number 5");
 //5. Create a new array called nameLengths. Write a loop to iterate over the previously created names array and add the length of each name to the nameLengths array.
+
+//created empty array, and then used the map method to add the number of characters in each name to the empty array by using the knowledge of strings being arrays in and of themselves.
 let nameLengths = [];
 nameLengths = names.map((name) => {
     return name.length
 });
 console.log(nameLengths);
 
+
 console.log("Number 6");
 //6. Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array.
+
+//created a variable with a value of 0 to start, then used a 'for of' loop to iterate over the names and add the values together
 let lengthSum = 0;
 for (let length of nameLengths){
     lengthSum += length;
 }
 console.log(lengthSum);
+
 
 console.log("Number 7");
 //7. Write a function that takes two parameters, word and n, as arguments and returns the word concatenated to itself n number of times. (i.e. if I pass in 'Hello' and 3, I would expect the function to return 'HelloHelloHello').
@@ -133,15 +139,22 @@ console.log(tripleWord("Hello", 3));
 
 console.log("Number 8");
 //8. Write a function that takes two parameters, firstName and lastName, and returns a full name. The full name should be the first and the last name separated by a space.
-function combinedName(firstName, lastName){
+
+//created function that takes firstName and lastName as parameters, and returns the result as a full name concatenated together separated by spaced, did first with a regular function (currently commented out), simplified to an arrow function
+
+/*function combinedName(firstName, lastName){
     return firstName + " " + lastName;
 }
+console.log(combinedName("FirstName", "LastName"));*/
+
+let combinedName = (firstName, lastName) => firstName + " " + lastName;
 console.log(combinedName("FirstName", "LastName"));
 
 console.log("Number 9");
 //9. Write a function that takes an array of numbers and returns true if the sum of all the numbers in the array is greater than 100.
 
 //Using the reduce method, created a function that sets the inital sum as 0, adds the values in the array, and outputs true or false depending on if the result is greater than 100.
+
 function largeNumber(array){
     let sumOfArray = array.reduce(
         (currentSum, currentValue) => currentSum + currentValue, 0
@@ -159,7 +172,8 @@ console.log(largeNumber([2, 4, 0, 9, 20, -5])) //returns false
 console.log("Number 10");
 //10. Write a function that takes an array of numbers and returns the average of all the elements in the array.
 
-// Also using the reduce method, this function adds the values in the array and divides them by the array length to get the average of the elements.
+// Also used the reduce method, this function adds the values in the array and divides them by the array length to get the average of the elements.
+
 function averageNumber(array){
    return array.reduce(
         (currentSum, currentValue) => currentSum + currentValue, 0
@@ -168,9 +182,11 @@ function averageNumber(array){
 console.log(averageNumber([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]));
 
 console.log("Number 11");
+
 //11. Write a function that takes two arrays of numbers and returns true if the average of the elements in the first array is greater than the average of the elements in the second array.
 
 //Uses the same reduce method, this time on multiple arrays to get their averages, and then uses an if/else statement to output true or false depending on if the first array average is larger.
+
 function isArrayBigger(array1, array2){
     array1.reduce(
         (currentSum, currentValue) => currentSum + currentValue, 0
@@ -192,6 +208,7 @@ console.log("Number 12");
 //12. Write a function called willBuyDrink that takes a boolean isHotOutside, and a number moneyInPocket, and returns true if it is hot outside and if moneyInPocket is greater than 10.50.
 
 //used implicit call for the function where the variable isn't defined until the function is called.
+
 function willBuyDrink(boolean, number){
     if(isHotOutside === true && moneyInPocket > 10.50){
         return true;
@@ -204,24 +221,26 @@ console.log(willBuyDrink(isHotOutside = true, moneyInPocket = 10.60)); //returns
 console.log(willBuyDrink(isHotOutside = false, moneyInPocket = 5.60)); //returns false
 
 //alternatively, with both boolean and number both defined within function and allowing the function to be called with empty intake. currently commented out due to having the same name as the uncommented function and will override it.
-// function willBuyDrink(boolean, number){
-//     let isHotOutside = true;
-//     let moneyInPocket = 25.00;
-//     if(isHotOutside === true && moneyInPocket > 10.50){
-//         return true;
-//     }
-//     else{
-//         return false;
-//     }
-// }
-// console.log(willBuyDrink());
+
+/*function willBuyDrink(boolean, number){
+    let isHotOutside = true;
+    let moneyInPocket = 25.00;
+    if(isHotOutside === true && moneyInPocket > 10.50){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
+console.log(willBuyDrink());*/
 
 
 console.log("Number 13");
 
 //13. Create a function of your own that solves a problem. In comments, write what the function does and why you created it.
 
-//tried to figure out how to make a function take an empty array with a set length, and then add a 1 or 0 to the array based on either input or random number, returning a string depending on whether the sum was greater or equal to a certain number, but couldn't figure it out. Defaulted to taking an array, calculating the sum of the array, and outputting the string based on whether the sum is greater than or equal to a number instead. Was doing it to keep in theme with the previous sumo wrestling site, where ranks are determined by wins/losses over 15 days.
+//tried to figure out how to make a function take an empty array with a set length, and then add a 1 or 0 to the array based on either input or random number, returning a string depending on whether the sum was greater or equal to a certain number, but couldn't figure it out. Defaulted to taking an array, calculating the sum of the array, and outputting the string based on whether the sum is greater than or equal to a number instead. Was doing it to keep in theme with the previous sumo wrestling site, where ranks are determined by wins/losses over 15 days, and to practice the reduce method a little more.
+
 function rankUp(array){
     let wins = array.reduce(
         (currentSum, currentValue) => currentSum + currentValue, 0
